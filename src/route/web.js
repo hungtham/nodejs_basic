@@ -13,7 +13,7 @@ const initWebRoute = (app) => {
     router.get('/', getMethod.getHomepage);
     router.get('/detail/user/:userId', getMethod.getDetailPage);//after : is declare variable name, and return value when go to link
     // localhost//detail/2/hieu   => userID : 2, name: hieu( through req.params)
-
+    router.post('/create-new-user', getMethod.createNewUser)
     router.get('/about', (req, res) => {
         res.send('Hello Express2!');
     })

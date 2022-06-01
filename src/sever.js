@@ -12,6 +12,14 @@ import initWebRoute from './route/web.js';
 const app = express();
 const port = process.env.PORT || 8080;
 
+//middleware: config express suport send data to sever, to get data easily
+// https://stackoverflow.com/questions/24330014/bodyparser-is-deprecated-express-4
+
+app.use(express.json());
+app.use(express.urlencoded({
+    extended: true
+}));
+
 //setup viewengine
 configViewEngine(app);
 
