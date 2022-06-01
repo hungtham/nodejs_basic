@@ -28,5 +28,8 @@
     "express": "4.17.1",
     "mysql2": "2.3.0",
     "nodemon": "2.0.12"
+  },
+  "devDependencies": {
+    "@babel/plugin-syntax-export-default-from": "^7.16.7"
   }
 }

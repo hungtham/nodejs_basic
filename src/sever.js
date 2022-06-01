@@ -3,8 +3,9 @@
 // import configViewEngine from './config/viewEngine.js';
 // import initWebRoute from './route/web.js'
 import express from "express";
-import initWebRoute from './route/web.js';
 import configViewEngine from './config/viewEngine.js';
+import initWebRoute from './route/web.js';
+
 // import connection from './config/connectDB.js'
 
 

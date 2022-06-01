@@ -31,9 +31,7 @@
                     <th>Action</th>
                 </tr>
             </thead>
-
-
-
+            
             <body>
 
                 <% for(var i=0; i < dataUsers.length; i++) { %>
@@ -48,9 +46,9 @@
                             <%= dataUsers[i].lastName %>
                         </td>
                         <td>
-                            <button type="button">
-                                <a href="/detail/user/<%= dataUsers[i].id %>" target="_blank">
-                                    Details</button>
+
+                            <a href="/detail/user/<%= dataUsers[i].id %>" target="_blank">Details</a>
+
                             <button type="button">Edit</button>
                             <button type="button">Delete</button>
                         </td>
