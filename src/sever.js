@@ -1,7 +1,5 @@
 // const express = require('express');
 //const path = require('path');
-// import configViewEngine from './config/viewEngine.js';
-// import initWebRoute from './route/web.js'
 import express from "express";
 import configViewEngine from './config/viewEngine.js';
 import initWebRoute from './route/web.js';

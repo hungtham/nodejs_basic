@@ -1,6 +1,9 @@
-//const express = require('express');
+//view engine: help use logic in html file,
+//https://expressjs.com/en/resources/template-engines.html
+// most use: ejs, express-handlebars,same with php(lavarel)-blade, java( jsp)
+
+
 import express from "express";
-//const path = require('path');
 //const express = require('express');
 
 const configViewEngine = (app) => {

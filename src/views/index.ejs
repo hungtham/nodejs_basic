@@ -50,8 +50,14 @@
 
                                 <a href="/detail/user/<%= dataUsers[i].id %>" target="_blank">Details</a>
 
-                                <button type="button" target="_blank">Edit</button>
-                                <button type="button" target="_blank">Delete</button>
+                                <form action="/edit-user/<%= dataUsers[i].id %>" method="get">
+                                    <button type="submit" target="_blank">Edit</button>
+                                </form>
+
+                                <form action="/delete-user" method="post">
+                                    <input type="text" hidden value="<%= dataUsers[i].id %>" name="userId" />
+                                    <button type="submit">Delete</button>
+                                </form>
                             </td>
                         </tr>
                         <% } %>
@@ -79,7 +85,7 @@
             </table>
         </div>
         <div class="create-user-container">
-            <form action="/create-new-user" method="post" target="_blank">
+            <form action="/create-new-user" method="post">
                 <div><b>Create a new user: </b></div>
                 <div>
                     <label>First Name:</label>

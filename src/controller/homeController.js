@@ -2,7 +2,7 @@
 // import connection from '../config/connectDB.js';
 import pool from '../config/connectDB.js';
 
-console.log('check');
+// console.log('check');
 
 let getHomepage = async (req, res) => {
     // old method
@@ -51,10 +51,38 @@ let createNewUser = async (req, res) => {
     await pool.execute('insert into users(firstName,lastName,email,address) values(?,?,?,?)', [firstName, lastName, email, address]);
     return res.redirect('/');
 }
+let deleteUser = async (req, res) => {
+    let userId = req.body.userId;
+    // DELETE FROM table_name WHERE condition;
+    await pool.execute('delete from users where id = ?', [userId]);
+    return res.redirect('/');
+}
+let getEditPage = async (req, res) => {
+    // return res.send(`hello edit page user ${req.params.userId}`);
+
+    let userId = req.params.userId;
+    let [user] = await pool.execute('Select * from users where id = ?', [userId]);//await will return [data, field] = > [user] or user[0]
+    return res.render('updateUser.ejs', { dataUser: user[0] });// user is array => use first element is object
+};
+
+let postUpdateUser = async (req, res) => {
+    //     UPDATE table_name
+    // SET column1 = value1, column2 = value2, ...
+    // WHERE condition;
+    let { firstName, lastName, email, address, userId } = req.body;
+    await pool.execute('update users set firstName = ?, lastName = ?, email = ?, address =? where id = ?',
+        [firstName, lastName, email, address, userId]);
+    console.log('check request', req.body);
+    return res.redirect('/');
+}
+
 let getMethod = {
     getHomepage: getHomepage,
     getDetailPage: getDetailPage,
     createNewUser: createNewUser,
+    deleteUser: deleteUser,
+    getEditPage: getEditPage,
+    postUpdateUser: postUpdateUser,
 }; //because export default can export only one function
 export default getMethod;
 
