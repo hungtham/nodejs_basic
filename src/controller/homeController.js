@@ -77,6 +77,12 @@ let postUpdateUser = async (req, res) => {
     //can use express validate npm to validate data
 }
 
+let uploadFilePage = async (req, res) => {
+    return res.render('uploadFile.ejs');
+};
+let handleUploadFile = async (req, res) => {
+
+};
 let getMethod = {
     getHomepage: getHomepage,
     getDetailPage: getDetailPage,
@@ -84,6 +90,8 @@ let getMethod = {
     deleteUser: deleteUser,
     getEditPage: getEditPage,
     postUpdateUser: postUpdateUser,
+    uploadFilePage: uploadFilePage,
+    handleUploadFile: handleUploadFile,
 }; //because export default can export only one function
 export default getMethod;
 

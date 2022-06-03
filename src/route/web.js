@@ -18,6 +18,7 @@ const initWebRoute = (app) => {
     router.get('/edit-user/:id', getMethod.getEditPage);
     router.post('/update-user', getMethod.postUpdateUser);
 
+    router.get('/upload-file', getMethod.uploadFilePage);
     router.get('/about', (req, res) => {
         res.send('Hello Express2!');
     })
