@@ -1,6 +1,7 @@
 // const express = require('express');
 import express from "express";
 import getMethod from '../controller/homeController.js';
+import multer from 'multer';
 
 
 
@@ -19,6 +20,9 @@ const initWebRoute = (app) => {
     router.post('/update-user', getMethod.postUpdateUser);
 
     router.get('/upload-file', getMethod.uploadFilePage);
+    router.post('/upload-profile-pic', getMethod.handleUploadFile.upload.single('profile_pic'), getMethod.handleUploadFile);
+
+
     router.get('/about', (req, res) => {
         res.send('Hello Express2!');
     })
